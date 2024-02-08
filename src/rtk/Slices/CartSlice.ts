@@ -88,7 +88,6 @@ export const cartSlice = createSlice({
       state.CartItems = state.CartItems.filter((i) => {
         return JSON.parse(localStorage.getItem('user')!).id.toString() !== i.idUser.toString()
       })
-      console.log(state.CartItems)
       localStorage.setItem("CartItems", JSON.stringify(state.CartItems));
       user(state)
       localStorage.setItem("userItems", JSON.stringify(state.userItems));

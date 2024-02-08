@@ -79,11 +79,8 @@ export default function Mail() {
         })
 
     ];
-    console.log(rows)
     return (
         <><Title title='MAIL' />
-
-
             <TableContainer component={Paper} sx={{ my: "40px", py: "20px" }}>
                 <Table sx={{ minWidth: 700 }} aria-label="spanning table" >
                     <TableBody>

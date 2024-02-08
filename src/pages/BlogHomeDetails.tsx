@@ -34,7 +34,6 @@ export default function BlogHomeDetails() {
     const backBlog = selector((state) => {
         return state.BlogSlice.backBlog
     });
-    console.log(nextBlog)
     const navigate = useNavigate()
     const [activeStep, setActiveStep] = React.useState(0);
 

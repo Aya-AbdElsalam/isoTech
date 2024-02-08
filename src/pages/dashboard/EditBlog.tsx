@@ -73,8 +73,6 @@ export default function EditBlog() {
     const [value, setValue] = useState('');
     const [date, setDate] = useState('');
     const [loading, setLoadingBlog] = useState(false);
-
-    console.log(value)
     useEffect(() => {
         fetch(`https://isotechdata.onrender.com/blogs/${params.id}`)
             .then((res) => res.json())

@@ -111,7 +111,6 @@ export default function Products() {
                                             }),
                                         })
                                             .then((res) => res.json()).then(() => { dispatch(fetchProducts()) }).then(() => {
-                                                console.log(loading)
                                                 loading === true && setTimeout(() => {
                                                     setLoading(false)
                                                 }, 3000)

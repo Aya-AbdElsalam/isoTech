@@ -9,7 +9,6 @@ export default function BarChart() {
     useEffect(() => {
         fetch("https://isotechdata.onrender.com/barChart").then((res) => res.json()).then((data) => setData(data))
     }, [])
-    console.log(data)
     return (
         <Paper sx={{ width: "200px", flexGrow: 2, height: "500px", padding: "10px", boxSizing: "border-box", fontSize: "7px" }} >
             <Typography fontWeight={"bold"} >Sales Statistics</Typography>
