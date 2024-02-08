@@ -52,6 +52,10 @@ export default function CardProducts(props: {
             color: "white"
         },
     }));
+    // props.products.map((item) => {
+    //     console.log(item.color.length)
+
+    // })
     return (
         <Stack width={"400px"} flexGrow={3} flexDirection={"row"} gap={3} flexWrap={"wrap"} justifyContent={{ xs: props.justifyXs, sm: props.justifyXs, md: props.justifySm }}>
             {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
@@ -65,8 +69,7 @@ export default function CardProducts(props: {
                                     id={`${item.id}${item.price}`}
                                     style={{ width: "100%", height: "200px" }}
                                     alt={item.title}
-                                    src={item.color.length >= 1 ? item.color[0].img :
-                                        item.img}
+                                    src={(item.color && item.color.length >= 1) ? item.color[0].img : item.img}
                                 />
                             </Link>
                         ) : (

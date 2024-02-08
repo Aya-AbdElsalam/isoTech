@@ -31,6 +31,7 @@ export default function ProductDetails() {
     const dispatch = useDispatch<AppDispatch>()
     const selector: TypedUseSelectorHook<RootState> = useSelector
     let products: {
+        img: string;
         id: number | string;
         title: string;
         price: string;
@@ -55,7 +56,7 @@ export default function ProductDetails() {
             <Container>
                 <Stack direction={"row"} my={"40px"} gap={2} flexWrap={"wrap"} justifyContent={"center"}>
                     {loading ? <Box width={"400px"} flexGrow={".5"} sx={{ background: "white" }}>
-                        <img loading="lazy" src={products.color[0].img} alt="" style={{ width: "100%", height: "400px" }} id={`${products.id}${products.price}`}></img>
+                        <img loading="lazy" src={products.color.length !== 0 ? products.color[0].img : products.img} alt="" style={{ width: "100%", height: "400px" }} id={`${products.id}${products.price}`}></img>
                     </Box> : <Skeleton variant="rectangular" width={"100%"} height={"400px"}></Skeleton>}
                     <Box width={"400px"} flexGrow={"1"} sx={{ background: "white" }} p={"20px"}>
                         {loading ? <><Typography color={"var(--txt--second)"}><Typography fontWeight={"bold"} display={"inline-block"}>Vendor:</Typography> Isotech - Electronics Products</Typography><Typography variant="h4" fontWeight={"bold"}>{products.title}</Typography><Typography variant="h5" my={"5px"}>{products.price}$</Typography><Typography>COLOR</Typography><Stack gap={1} flexDirection={"row"} my={"10px"}>

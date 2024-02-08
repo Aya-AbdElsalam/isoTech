@@ -1,5 +1,4 @@
 import Title from "../../component/Title";
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { green } from '@mui/material/colors';
 
@@ -15,7 +14,9 @@ import {
     StandardTextFieldProps,
     TextField,
     TextFieldVariants,
+
 } from "@mui/material";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { c } from "../../Data/Color";
 import { CancelPresentationOutlined, ColorLens } from "@mui/icons-material";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -30,6 +31,13 @@ import { IconButton, Typography } from "@mui/joy";
 import { useForm } from "react-hook-form";
 
 export default function AddProduct() {
+    const [open, setOpen] = React.useState(false);
+    const [error, setError] = useState(false)
+    const [load, setLoading] = useState(false)
+    const [main, setMain] = useState(false)
+    const {
+        handleSubmit,
+    } = useForm();
     const [success] = React.useState(false);
 
     const buttonSx = {
@@ -40,22 +48,21 @@ export default function AddProduct() {
             },
         }),
     };
-
     const navigate = useNavigate();
     const [title, settitle] = useState("");
     const [price, setprice] = useState("");
     const [categorie, setcategorie] = useState("");
-    const [colorArr, setColorArr] = useState<{
+    var colorArr: {
         img: string,
         color: string
-    }[] | undefined>()
+    }[];
+    var setColorArr: Dispatch<SetStateAction<any>> = () => { }
+    [colorArr, setColorArr] = useState([])
     const [color, setColor] = useState<string[]>([])
-
     const [img, setImg] = useState<{
         id: number,
         img: string
     }[]>([])
-
     const [imgTxt, setImgTxt] = useState<{
         id: number,
         img: string
@@ -63,6 +70,9 @@ export default function AddProduct() {
     const [mainImg, setMainImg] = useState<string | undefined>()
     const dispatch = useDispatch<AppDispatch>()
     const selector: TypedUseSelectorHook<RootState> = useSelector
+
+
+
     const Categories = selector((state) => {
         return state.ProductSlice.categories;
     });
@@ -74,13 +84,9 @@ export default function AddProduct() {
     const handleClose = () => {
         setOpen(false);
     };
-    const [open, setOpen] = React.useState(false);
-    const [error, setError] = useState(false)
-    const [load, setLoading] = useState(false)
-    const [main, setMain] = useState(false)
+
     const {
         register,
-        handleSubmit,
         formState: { errors },
     } = useForm();
     function addProduct() {
@@ -91,13 +97,12 @@ export default function AddProduct() {
             setMain(true)
         }
         else {
-            for (let i = 0; i < img.length; i++) {
-                setColorArr(colorArr?.concat({
-                    img: img[i].img,
-                    color: color[i]
-                }))
-            }
-
+            img.forEach((i, index) => {
+                setColorArr(colorArr.concat({
+                    img: i.img,
+                    color: color[index]
+                }));
+            })
             setLoading(true)
             fetch(`https://isotechdata.onrender.com/Products`, {
                 method: "POST",

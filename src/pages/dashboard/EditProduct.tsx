@@ -81,15 +81,19 @@ export default function EditProduct() {
             .then((data) => {
                 const id = Date.now();
                 var arr: string[] = [];
-                setColor(color.concat(data.color.map((i: { color: string; }) => {
-                    return i.color
-                })))
-                setImg(img.concat(data.color.map((i: { img: string; }, index: number) => {
-                    return { id: id + index, img: i.img }
-                })))
-                arr = arr.concat(data.color.map((i: { color: string; }) => {
-                    return i.color
-                }))
+                if (data.color && data.color.length !== 0) {
+                    setColor(color.concat(data.color.map((i: { color: string; }) => {
+                        return i.color
+                    })))
+                    setImg(img.concat(data.color.map((i: { img: string; }, index: number) => {
+                        return { id: id + index, img: i.img }
+                    })))
+                    arr = arr.concat(data.color.map((i: { color: string; }) => {
+                        return i.color
+                    }))
+                }
+
+
                 setImgTxt(arr.map((i, index) => {
 
                     return { id: id + index, img: `img ${arr[index]}` }
@@ -309,8 +313,6 @@ export default function EditProduct() {
                                                 }
                                             };
                                         }
-
-
                                         setImgTxt(imgTxt.concat({
                                             id: date,
                                             img: `${e.target.value.substring(0, 20)}${e.target.value.length > 20 ? "..." : ""}`

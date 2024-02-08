@@ -20,7 +20,7 @@ export default function Shop() {
     useEffect(() => {
         dispatch(fetchProducts());
         dispatch(fetchcategories());
-    }, []);
+    }, [dispatch]);
     const options = ["Higher price", "Lower price"];
     const StyledInputBase = styled(InputBase)(({ theme }) => ({
         color: 'inherit',
@@ -49,12 +49,13 @@ export default function Shop() {
 
     }));
     const [search, setsearch] = React.useState("")
+    console.log(products)
     return (
         <>
             <Title title="PRODUCTS" />
             <Container sx={{ my: "60px" }}>
                 <Stack width={"100%"} sx={{ background: "white" }} p={"10px"} my={"30px"} flexDirection={"row"} alignItems={"center"}>
-                    <Typography fontWeight={"bold"}>{products.length} - Results </Typography>
+                    <Typography fontWeight={"bold"}>{loading && products.length} - Results </Typography>
                     <Search sx={{ height: "fit-content", width: "50%", mx: "auto", display: { xs: "none", md: "flex" }, flexDirection: "row-reverse", border: "1px solid" }}>
                         <SearchIconWrapper sx={{ background: "var(--btn--main)", color: "white" }}>
                             <SearchIcon />

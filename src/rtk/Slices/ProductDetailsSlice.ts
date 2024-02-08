@@ -14,6 +14,7 @@ export const fetchChoosenProduct = createAsyncThunk(
 interface ProducState {
     loading: boolean,
     product: {
+        img: string,
         id: number | string,
         title: string,
         price: string,
@@ -24,7 +25,9 @@ interface ProducState {
 }
 const initialState: ProducState = {
     loading: false,
-    product:{ id: "",
+    product: {
+        img:"",
+        id: "",
         title: "",
         price: "",
         categorie: "",

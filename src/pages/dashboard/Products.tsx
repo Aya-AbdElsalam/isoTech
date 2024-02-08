@@ -67,7 +67,6 @@ export default function Products() {
             renderCell: ({ row: color, row: id, row: title, row: price, row: categorie, row: qty, row: img }) => {
                 return (
                     <Box
-
                     >
                         <Stack direction={"row"} gap={2}>
                             <Autocomplete
@@ -75,9 +74,9 @@ export default function Products() {
                                 includeInputInList
                                 clearOnEscape
                                 id={`${id.id}/${title.title}`}
-                                options={color.color.map((i: { color: string; }) => {
+                                options={(color.color && color.color.length !== 0) ? color.color.map((i: { color: string; }) => {
                                     return i.color
-                                })}
+                                }) : []}
                                 sx={{ width: "140px" }}
                                 renderInput={(params) => <TextField {...params} label="color" />}
 
@@ -128,7 +127,6 @@ export default function Products() {
                                             color: green[500],
                                             position: 'absolute',
                                             top: '50%',
-
                                             left: '50%',
                                             marginTop: '-12px',
                                             marginLeft: '-12px',
@@ -215,24 +213,19 @@ export default function Products() {
                 img: p.img
             }
         })
-
     ];
     return (
         <><Title title='PRODUCTS' /><Box sx={{ height: "max-content", width: '100%' }}>
             <DataGrid
                 density='comfortable'
                 slots={{ toolbar: GridToolbar }}
-                rows={loading ? rows[0] : []}
+                rows={loading ? rows[0].slice(0, products.length - 1) : []}
                 columns={columns}
                 initialState={{
-                    pagination: {
-                        paginationModel: {
-                            pageSize: 8,
-                        },
-                    },
+                    pagination: { paginationModel: { pageSize: 5 } },
                 }}
+                pageSizeOptions={[5, 10, 25]}
                 sx={{ mt: "50px" }}
-                pageSizeOptions={[8]}
                 disableRowSelectionOnClick />
             <Link to="addProduct">
                 <Button aria-labelledby="add" sx={{ mb: "40px", mt: "15px" }} variant='contained' >ADD PRODUCT</Button>
