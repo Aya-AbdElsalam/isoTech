@@ -72,150 +72,146 @@ export default function CardProductsHome(props: {
                         )
                     })}
                 </Tabs>
-                <Stack direction={"row"} flexWrap={"wrap"} gap={1} mt={"20px"}>
-                    <Tabs
-                        sx={{ my: "60px", alignItems: "center" }}
-                        variant="scrollable"
-                        scrollButtons
-                        allowScrollButtonsMobile
-                        value={0}
-                        TabScrollButtonProps={{ style: { background: "var(--btn--main)", color: "white", height: "41px", borderRadius: "50%" } }}
-                        TabIndicatorProps={{ style: { background: 'transparent' } }}        >
-                        {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
-                            img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
-                        }, index: string | number) => (
-                            <Paper key={index} sx={{ overflow: "auto", height: "auto", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                                {
-                                    props.loading ? (
-                                        <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
-                                            <img loading="lazy"
-                                                id={`${item.id}${item.price}`}
-                                                style={{ width: "100%", height: "200px" }}
-                                                alt={item.title}
-                                                src={item.color.length >= 1 ? item.color[0].img :
-                                                    item.img}
-                                            />
-                                        </Link>
-                                    ) : (
-                                        <Skeleton variant="rectangular" width={"150px"} height={"200px"} />
-                                    )}
-                                {props.loading ? (
-                                    <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
-                                        <Box>
-                                            <Link to={`../Shop/${item.id}/${item.title}`} style={{ textWrap: "wrap" }} >
-                                                <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
-                                                    {item.title}
-                                                </Typography>
-                                            </Link>
-                                            <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
-                                                ${item.price}
-                                            </Typography>
-
-                                            {item.color ? <Stack gap={1} flexDirection={"row"} my={"10px"}>
-                                                {(item.color.length != 0) ? item.color.map((i: { color: string }, index: number) => (
-                                                    <Box
-                                                        key={index}
-                                                        onClick={((e) => {
-                                                            const { target } = e;
-                                                            if (target instanceof HTMLElement) {
-                                                                let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
-                                                                let img2 = item.color.find((i: { color: string }) => {
-                                                                    return i.color === target.classList[0]
-                                                                })
-                                                                imgChange.src = img2.img
-                                                            }
-                                                        })}
-                                                        className={i.color}
-                                                        sx={{ backgroundColor: `${i.color}`, cursor: "pointer" }} borderRadius={"50%"} width={"20px"} height={"20px"} border={"1px solid black"} >
-                                                    </Box>
-                                                )) : <></>}
-                                            </Stack> : <></>}
-                                        </Box>
-                                        <Stack flexDirection={"row"} gap={1}>
-                                            <IconButton
-                                                aria-labelledby="addToCart"
-                                                onClick={() => {
-                                                    if (user) {
-                                                        let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
-                                                        const imgURL = imgChange.src
-                                                        let col = item.color.find((i: { img: string }) => {
-                                                            return i.img === imgURL
-                                                        })
-                                                        const color = col === undefined ? [] : col.color
-                                                        dispatch(addToCart(
-                                                            {
-                                                                idUser: user.id,
-                                                                id: item.id,
-                                                                title: item.title,
-                                                                price: item.price,
-                                                                categorie: item.categorie,
-                                                                color: color,
-                                                                qty: item.qty,
-                                                                img: imgURL
-                                                            }
-                                                        ))
-                                                        setAdd(true)
-                                                    }
-                                                    else {
-                                                        setSign(true)
-                                                    }
-                                                }}
-                                                aria-label="cart" sx={{ background: "var(--btn--hover)", borderRadius: "3px", "&:hover": { background: "var(--btn--main)" } }}>
-                                                <StyledBadge badgeContent={"+"}>
-                                                    <ShoppingCart sx={{ color: "white" }} />
-                                                </StyledBadge>
-                                            </IconButton>
-                                            <IconButton
-                                                aria-labelledby="addToWishList"
-                                                onClick={() => {
-                                                    if (user) {
-                                                        let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
-                                                        const imgURL = imgChange.src
-                                                        let col = item.color.find((i: { img: string }) => {
-                                                            return i.img === imgURL
-                                                        })
-                                                        const color = col.color
-                                                        dispatch(addTowishList(
-                                                            {
-                                                                idUser: user.id,
-                                                                id: item.id,
-                                                                title: item.title,
-                                                                price: item.price,
-                                                                categorie: item.categorie,
-                                                                color: color,
-                                                                qty: item.qty,
-                                                                img: imgURL
-                                                            }
-                                                        ))
-                                                    }
-                                                    else {
-                                                        setSign(true)
-                                                    }
-                                                }}
-                                                aria-label="cart" sx={{ background: "var(--btn--hover)", borderRadius: "3px", "&:hover": { background: "var(--btn--main)" } }}>
-                                                <StyledBadge badgeContent={"+"}>
-                                                    <Favorite sx={{
-                                                        color: wish.find((i) => {
-                                                            return +item.id === +i.id
-                                                        }) ? "red" : "white"
-                                                    }} />
-                                                </StyledBadge>
-                                            </IconButton>
-                                        </Stack>
-                                    </Stack>
+                <Tabs
+                    sx={{ my: "10px", alignItems: "center", textWrap: "wrap" }}
+                    variant="scrollable"
+                    scrollButtons
+                    allowScrollButtonsMobile
+                    value={0}
+                    TabScrollButtonProps={{ style: { background: "var(--btn--main)", color: "white", height: "41px", borderRadius: "50%" } }}
+                    TabIndicatorProps={{ style: { background: 'transparent' } }}        >
+                    {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
+                        img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
+                    }, index: string | number) => (
+                        <Paper key={index} sx={{ height: "500px", overflow: "hidden", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                            {
+                                props.loading ? (
+                                    <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
+                                        <img loading="lazy"
+                                            id={`${item.id}${item.price}`}
+                                            style={{ width: "100%", height: "200px" }}
+                                            alt={item.title}
+                                            src={item.color.length >= 1 ? item.color[0].img :
+                                                item.img}
+                                        />
+                                    </Link>
                                 ) : (
-                                    <Box sx={{ pt: 0.5 }}>
-                                        <Skeleton />
-                                        <Skeleton width="60%" />
-                                    </Box>
+                                    <Skeleton variant="rectangular" width={"150px"} height={"200px"} />
                                 )}
-                            </Paper>
-                            // 
-                        ))}
-                        <AlertSign handleCloseAdd={() => handleCloseAdd()} handleCloseSign={() => { handleCloseSign() }} addvalue={add} signValue={sign}></AlertSign>
-                    </Tabs>
-                    {/* <CardProducts loading={loading} products={products} justifyXs='center' justifySm='flex-start' /> */}
-                </Stack>
+                            {props.loading ? (
+                                <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
+                                    <Box>
+                                        <Link to={`../Shop/${item.id}/${item.title}`} style={{ textWrap: "wrap" }} >
+                                            <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
+                                                {item.title}
+                                            </Typography>
+                                        </Link>
+                                        <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
+                                            ${item.price}
+                                        </Typography>
+                                        {item.color ? <Stack gap={1} flexDirection={"row"} my={"10px"}>
+                                            {(item.color.length !== 0) ? item.color.map((i: { color: string }, index: number) => (
+                                                <Box
+                                                    key={index}
+                                                    onClick={((e) => {
+                                                        const { target } = e;
+                                                        if (target instanceof HTMLElement) {
+                                                            let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
+                                                            let img2 = item.color.find((i: { color: string }) => {
+                                                                return i.color === target.classList[0]
+                                                            })
+                                                            imgChange.src = img2.img
+                                                        }
+                                                    })}
+                                                    className={i.color}
+                                                    sx={{ backgroundColor: `${i.color}`, cursor: "pointer" }} borderRadius={"50%"} width={"20px"} height={"20px"} border={"1px solid black"} >
+                                                </Box>
+                                            )) : <></>}
+                                        </Stack> : <></>}
+                                    </Box>
+                                    <Stack flexDirection={"row"} gap={1}>
+                                        <IconButton
+                                            aria-labelledby="addToCart"
+                                            onClick={() => {
+                                                if (user) {
+                                                    let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
+                                                    const imgURL = imgChange.src
+                                                    let col = item.color.find((i: { img: string }) => {
+                                                        return i.img === imgURL
+                                                    })
+                                                    const color = col === undefined ? [] : col.color
+                                                    dispatch(addToCart(
+                                                        {
+                                                            idUser: user.id,
+                                                            id: item.id,
+                                                            title: item.title,
+                                                            price: item.price,
+                                                            categorie: item.categorie,
+                                                            color: color,
+                                                            qty: item.qty,
+                                                            img: imgURL
+                                                        }
+                                                    ))
+                                                    setAdd(true)
+                                                }
+                                                else {
+                                                    setSign(true)
+                                                }
+                                            }}
+                                            aria-label="cart" sx={{ background: "var(--btn--hover)", borderRadius: "3px", "&:hover": { background: "var(--btn--main)" } }}>
+                                            <StyledBadge badgeContent={"+"}>
+                                                <ShoppingCart sx={{ color: "white" }} />
+                                            </StyledBadge>
+                                        </IconButton>
+                                        <IconButton
+                                            aria-labelledby="addToWishList"
+                                            onClick={() => {
+                                                if (user) {
+                                                    let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
+                                                    const imgURL = imgChange.src
+                                                    let col = item.color.find((i: { img: string }) => {
+                                                        return i.img === imgURL
+                                                    })
+                                                    const color = col.color
+                                                    dispatch(addTowishList(
+                                                        {
+                                                            idUser: user.id,
+                                                            id: item.id,
+                                                            title: item.title,
+                                                            price: item.price,
+                                                            categorie: item.categorie,
+                                                            color: color,
+                                                            qty: item.qty,
+                                                            img: imgURL
+                                                        }
+                                                    ))
+                                                }
+                                                else {
+                                                    setSign(true)
+                                                }
+                                            }}
+                                            aria-label="cart" sx={{ background: "var(--btn--hover)", borderRadius: "3px", "&:hover": { background: "var(--btn--main)" } }}>
+                                            <StyledBadge badgeContent={"+"}>
+                                                <Favorite sx={{
+                                                    color: wish.find((i) => {
+                                                        return +item.id === +i.id
+                                                    }) ? "red" : "white"
+                                                }} />
+                                            </StyledBadge>
+                                        </IconButton>
+                                    </Stack>
+                                </Stack>
+                            ) : (
+                                <Box sx={{ pt: 0.5 }}>
+                                    <Skeleton />
+                                    <Skeleton width="60%" />
+                                </Box>
+                            )}
+                        </Paper>
+                        // 
+                    ))}
+                    <AlertSign handleCloseAdd={() => handleCloseAdd()} handleCloseSign={() => { handleCloseSign() }} addvalue={add} signValue={sign}></AlertSign>
+                </Tabs>
             </Box>
         </Container>
     )
