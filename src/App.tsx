@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Footer from './component/Footer';
 import ResponsiveAppBar from './component/NavBar';
@@ -34,9 +34,16 @@ import EditBlog from './pages/dashboard/EditBlog';
 import Mail from './pages/dashboard/Mail';
 import MailDetails from './pages/dashboard/MailDetails';
 import DashboardHome from './pages/dashboard/DadhboardHome';
+import { useEffect } from 'react';
 
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // go to top page when open the page
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
+
     <div className="App">
       <ResponsiveAppBar></ResponsiveAppBar>
       <Routes>
@@ -59,15 +66,7 @@ function App() {
         <Route path='' element={<Home />} />
         <Route
           path="dashboard"
-          element={
-            localStorage.getItem("user") ? (
-              <Dashboard></Dashboard>
-            ) : (
-              <>
-                <SignIn></SignIn>
-              </>
-            )
-          }
+          element={<Dashboard></Dashboard>}
         >
           <Route index element={<DashboardHome />}></Route>
           <Route path="comments" element={<Comments />}></Route>

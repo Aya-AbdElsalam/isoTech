@@ -53,7 +53,7 @@ export default function Cart() {
                             <TableRow key={row.id}>
                                 <TableCell>{row.PRODUCT}</TableCell>
                                 <TableCell><img loading="lazy" style={{ width: "120px", height: "130px" }} alt="" src={row.img}></img></TableCell>
-                                <TableCell>
+                                <TableCell width={"120px"}>
                                     <Stack flexDirection={"row"}>
                                         <TextField type="number" id={`${row.id}-${row.img}`} defaultValue={row.QUANTITY} onChange={(event) => {
                                             if (+event.target.value <= 0) {

@@ -10,11 +10,7 @@ interface State extends SnackbarOrigin {
     open: boolean;
 }
 export default function SignUp() {
-    const [state, setState] = React.useState<State>({
-        open: false,
-        vertical: 'top',
-        horizontal: 'center',
-    });
+    const [open, setState] = React.useState(false);
     const [name, setname] = useState("")
     const [pass, setPass] = useState("")
     const [email, setEmail] = useState("")
@@ -22,9 +18,8 @@ export default function SignUp() {
 
     const dispatch = useDispatch<AppDispatch>()
 
-    const { vertical, horizontal, open } = state;
     const handleClose = () => {
-        setState({ ...state, open: false });
+        setState(false);
     };
     const {
         register,
@@ -66,7 +61,7 @@ export default function SignUp() {
                             }),
                         })
                         dispatch(fetchsignIn())
-                        setState({ ...state, open: true });
+                        setState(true);
                     }
                 })
                 }>
@@ -124,7 +119,7 @@ export default function SignUp() {
                     >
                         SIGN UP
                     </Button>) : (<Skeleton variant="rounded" sx={{ my: "20px" }}></Skeleton>)}
-                    <Snackbar anchorOrigin={{ vertical, horizontal }}
+                    <Snackbar
                         open={open} autoHideDuration={4000} onClose={handleClose}>
                         <Alert
                             onClose={handleClose}

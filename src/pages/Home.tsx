@@ -25,9 +25,9 @@ export default function Home() {
         <>
             <Landding></Landding>
             <TrendingProducts />
+
             <TrendingProductsWeek />
             <Container sx={{ my: "40px" }}>
-
                 <SubTitle title="BLOG" />
                 <BlogCard loading={loading} blogs={blogs.slice(0, 3)} admin={false} />
             </Container>

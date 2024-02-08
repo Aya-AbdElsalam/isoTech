@@ -22,7 +22,7 @@ const initialState: cartState = {
 function user(state: { CartItems: { img: string; id: string | number; idUser: string | number; title: string; price: string | number; categorie: string; color: [{ color: string; img: string }]; qty: number }[]; userItems: { img: string; id: string | number; idUser: string | number; title: string; price: string | number; categorie: string; color: [{ color: string, img: string }]; qty: number }[] }) {
   const user = JSON.parse(localStorage.getItem('user')!)
   state.userItems = state.CartItems.filter((p) => {
-    return p.idUser == user.id
+    return p.idUser.toString() === user.id.toString()
   })
   localStorage.setItem("userItems", JSON.stringify(state.userItems));
 }
@@ -41,8 +41,8 @@ export const cartSlice = createSlice({
       user(state)
       const item = state.userItems.find((product) => {
         return (
-      typeof( product.color)==="object"?  +product.id == +action.payload.id:  product.color == action.payload.color &&
-          +product.id == +action.payload.id
+      typeof( product.color)==="object"?  product.id.toString() === action.payload.id.toString():  product.color === action.payload.color &&
+          product.id.toString() === action.payload.id.toString()
         );
       });
       if (item) {
@@ -78,7 +78,7 @@ export const cartSlice = createSlice({
     },
     deleteFromCart(state, action) {
       state.CartItems = state.CartItems.filter((i) => {
-        return (i.id != action.payload.id && i.img !== action.payload.img && i.title !== action.payload.PRODUCT && i.idUser == JSON.parse(localStorage.getItem("user")!).id) || i.idUser != JSON.parse(localStorage.getItem("user")!).id
+        return (i.id.toString() !== action.payload.id.toString() && i.img !== action.payload.img && i.title !== action.payload.PRODUCT && i.idUser.toString() === JSON.parse(localStorage.getItem("user")!).id.toString()) || i.idUser.toString() !== JSON.parse(localStorage.getItem("user")!).id.toString()
       })
       localStorage.setItem("CartItems", JSON.stringify(state.CartItems));
       user(state)
@@ -86,8 +86,9 @@ export const cartSlice = createSlice({
     },
     clear(state) {
       state.CartItems = state.CartItems.filter((i) => {
-        return +JSON.parse(localStorage.getItem('user')!).id !== +i.idUser
+        return JSON.parse(localStorage.getItem('user')!).id.toString() !== i.idUser.toString()
       })
+      console.log(state.CartItems)
       localStorage.setItem("CartItems", JSON.stringify(state.CartItems));
       user(state)
       localStorage.setItem("userItems", JSON.stringify(state.userItems));

@@ -126,17 +126,13 @@ export default function ProductDetails() {
                                 <Tab label="Privacy policy" value="2" />
                             </TabList>
                         </Box>
-
                         <TabPanel value="1"><Reviews /> </TabPanel>
                         <TabPanel value="2">
                             <Typography color={"var(--txt--second)"}>
                                 Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.
-
                             </Typography>
                             <Typography color={"var(--txt--second)"}>
                                 We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.
-
-
                             </Typography>
                         </TabPanel>
                     </TabContext>

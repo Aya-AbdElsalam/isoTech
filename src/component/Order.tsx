@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Box, Paper, Stack } from "@mui/material";
-import { History } from "@mui/icons-material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Typography } from "@mui/joy";
 
@@ -30,36 +29,47 @@ export default function Orders() {
             field: "Customer",
             headerName: "Customer",
             flex: 1,
+            minWidth: 166
         },
         {
             field: "Email",
             headerName: "Email",
             flex: 1,
+            minWidth: 180
+
         },
         {
             field: "Phone",
             headerName: "Phone",
             flex: 1,
+            minWidth: 166
+
         },
         {
             field: "item",
             headerName: "Item",
             flex: 1.5,
+            minWidth: 166
+
         },
         {
             width: 30,
             field: "price",
             headerName: "Price",
+            minWidth: 120
+
         },
         {
             field: "date",
             headerName: "Date",
             flex: 1,
+            minWidth: 166
 
         },
         {
             field: "payment",
             headerName: "Payment",
+            minWidth: 120
         },
     ];
 

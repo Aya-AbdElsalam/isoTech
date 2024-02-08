@@ -49,9 +49,9 @@ export default function SideNav() {
                 sx={{
                     width: drawerWidth,
                     flexShrink: 0,
-                    marginTop: "68px",
+                    marginTop: "55px",
                     '& .MuiDrawer-paper': {
-                        marginTop: "68px",
+                        marginTop: "55px",
                         width: drawerWidth,
                         boxSizing: 'border-box',
                         borderRight: " 3px solid var(--btn--main)",

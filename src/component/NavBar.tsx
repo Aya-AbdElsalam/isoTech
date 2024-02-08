@@ -74,15 +74,7 @@ function ResponsiveAppBar() {
 
                 <ModalClose id="close-icon" sx={{ position: 'initial' }} />
               </Box>
-              {/* <Search sx={{ height: "fit-content", display: "flex", flexDirection: "row-reverse", border: "1px solid" }}>
-                <SearchIconWrapper sx={{ background: "var(--btn--main)", color: "white" }}>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search> */}
+
               {pages.map((page, index) => (
                 <Button
                   key={index}

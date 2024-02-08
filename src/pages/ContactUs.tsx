@@ -13,14 +13,10 @@ interface State extends SnackbarOrigin {
     open: boolean;
 }
 export default function ContactUs() {
-    const [state, setState] = React.useState<State>({
-        open: false,
-        vertical: 'top',
-        horizontal: 'center',
-    });
-    const { vertical, horizontal, open } = state;
+    const [open, setState] = React.useState(false);
+    // const { vertical, horizontal, open } = state;
     const handleClose = () => {
-        setState({ ...state, open: false });
+        setState(false);
     };
     const {
         register,
@@ -69,12 +65,11 @@ export default function ContactUs() {
                                         comment,
                                         name,
                                         idUser: JSON.parse(localStorage.getItem("user")!) ? JSON.parse(localStorage.getItem("user")!).id : Date.now()
-                                    }),
+                                    })
                                 })
                                     .then((res) => res.json()).then((r) => {
-                                        setState({ ...state, open: true });
+                                        setState(true);
                                         setLoading(false)
-
                                     })
                             })
                             }>
@@ -133,21 +128,7 @@ export default function ContactUs() {
                                     onChange={(event) => setComment(event.target.value)}
                                     value={comment}
                                 />
-                                {/* 
-                                <Button
 
-                                    variant="contained"
-                                    type="submit"
-                                    sx={{
-                                        width: "100%",
-                                        fontWeight: "bold",
-                                        fontSize: "20px",
-                                        paddingY: "20px",
-                                        background: "var(--btn--main)",
-                                        my: "30px"
-                                    }}
-                                >
-                                    SEND                                </Button> */}
 
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
@@ -175,7 +156,7 @@ export default function ContactUs() {
                                         )}
                                     </Box>
                                 </Box>
-                                <Snackbar anchorOrigin={{ vertical, horizontal }}
+                                <Snackbar
                                     open={open} autoHideDuration={4000} onClose={handleClose}>
                                     <Alert
                                         onClose={handleClose}
