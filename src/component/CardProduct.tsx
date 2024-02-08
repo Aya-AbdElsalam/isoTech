@@ -103,6 +103,7 @@ export default function CardProducts(props: {
                             </Stack> : <></>}
                             <Stack flexDirection={"row"} gap={1}>
                                 <IconButton
+                                    aria-labelledby="addToCart"
                                     onClick={() => {
                                         if (user) {
                                             let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
@@ -110,7 +111,6 @@ export default function CardProducts(props: {
                                             let col = item.color.find((i: { img: string }) => {
                                                 return i.img === imgURL
                                             })
-                                            console.log(item.qty)
                                             const color = col === undefined ? [] : col.color
                                             dispatch(addToCart(
                                                 {
@@ -136,6 +136,7 @@ export default function CardProducts(props: {
                                     </StyledBadge>
                                 </IconButton>
                                 <IconButton
+                                    aria-labelledby="addTowishList"
                                     onClick={() => {
                                         if (user) {
                                             let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement

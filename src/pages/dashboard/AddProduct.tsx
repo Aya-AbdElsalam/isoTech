@@ -143,6 +143,7 @@ export default function AddProduct() {
                         <img src={mainImg} alt="mainImg" style={{ width: "350px", height: "350px" }} />
                     </Box>
                     <Button id="inputFile1" component="label"
+                        aria-labelledby="upload"
                         variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                         Upload Default Image
                         <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -254,7 +255,7 @@ export default function AddProduct() {
                         />
                         <Box sx={{ flexGrow: "1" }}>
                             <Button id="inputFile1" component="label"
-
+                                aria-labelledby="upload"
                                 variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                                 Upload image
                                 <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -282,7 +283,7 @@ export default function AddProduct() {
                                 {imgTxt?.map((i) => {
                                     return (
                                         <Typography display={"inline-block"} fontSize={"14px"} sx={{ display: "inline-flex", alignItems: "center" }}>
-                                            {i.img} <IconButton onClick={() => {
+                                            {i.img} <IconButton aria-labelledby="img" onClick={() => {
                                                 setImgTxt(imgTxt.filter((img) => {
                                                     return img.id !== i.id
                                                 }))
@@ -322,6 +323,7 @@ export default function AddProduct() {
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Box sx={{ position: 'relative' }}>
                                 <Button
+                                    aria-labelledby="submit"
                                     variant="contained"
                                     sx={buttonSx}
                                     type="submit"
@@ -347,6 +349,7 @@ export default function AddProduct() {
                         </Box>
 
                         <Button
+                            aria-labelledby="cancel"
                             variant="outlined"
                             color="error"
                             onClick={(e) => {

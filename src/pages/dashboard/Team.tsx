@@ -76,6 +76,7 @@ export default function Team() {
                     <Stack direction={"row"} gap={2}>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
+                                aria-labelledby="submit"
                                 sx={buttonSx}
                                 type="submit"
                                 disabled={load}
@@ -108,7 +109,7 @@ export default function Team() {
                             )}
                         </Box>
 
-                        <IconButton onClick={() => {
+                        <IconButton aria-labelledby="edit" onClick={() => {
                             navigate(`../team/edit/${id.id}`)
                         }}><Edit /> </IconButton>
                     </Stack>
@@ -147,7 +148,7 @@ export default function Team() {
                 pageSizeOptions={[8]}
                 disableRowSelectionOnClick />
             <Link to="addTeam">
-                <Button sx={{ mb: "40px", mt: "15px" }} variant='contained'>ADD MEMBER</Button>
+                <Button aria-labelledby="add" sx={{ mb: "40px", mt: "15px" }} variant='contained'>ADD MEMBER</Button>
             </Link>
         </Box></>
     );

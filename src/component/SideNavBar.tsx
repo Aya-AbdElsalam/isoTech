@@ -63,7 +63,7 @@ export default function SideNav() {
             >
                 <List>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => { setOpen(false) }}>
+                        <ListItemButton aria-labelledby="dashboard" onClick={() => { setOpen(false) }}>
                             <ListItemIcon>
                                 <DashboardOutlined />
                             </ListItemIcon>
@@ -80,7 +80,7 @@ export default function SideNav() {
                         <ListItem key={text} disablePadding onClick={() => {
                             navigate(`${text}`);
                         }}>
-                            <ListItemButton onClick={() => { setOpen(false) }}>
+                            <ListItemButton onClick={() => { setOpen(false) }} aria-labelledby="dashboard">
                                 <ListItemIcon>
                                     {[<ChatBubbleOutline />, <EmailOutlined />][index]}
                                 </ListItemIcon>
@@ -98,7 +98,7 @@ export default function SideNav() {
                         <ListItem key={text} disablePadding onClick={() => {
                             navigate(`${text}`);
                         }}>
-                            <ListItemButton onClick={() => { setOpen(false) }}>
+                            <ListItemButton onClick={() => { setOpen(false) }} aria-labelledby="dashboard">
                                 <ListItemIcon>
                                     {[<ProductionQuantityLimitsOutlined />, <Diversity3Outlined />, <BrandingWatermarkOutlined />, <Article />][index]}
                                 </ListItemIcon>

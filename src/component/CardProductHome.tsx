@@ -104,7 +104,8 @@ export default function CardProductsHome(props: {
                                         <Box>
                                             <Link to={`../Shop/${item.id}/${item.title}`}>
                                                 <Typography fontSize={"13px"} fontWeight={"bold"} height={"100px"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
-                                                    {item.title}
+                                                    <Typography sx={{ textWrap: "wrap" }}>{item.title}
+                                                    </Typography>
                                                 </Typography>
                                             </Link>
                                             <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
@@ -133,6 +134,7 @@ export default function CardProductsHome(props: {
                                         </Box>
                                         <Stack flexDirection={"row"} gap={1}>
                                             <IconButton
+                                                aria-labelledby="addToCart"
                                                 onClick={() => {
                                                     if (user) {
                                                         let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
@@ -140,7 +142,6 @@ export default function CardProductsHome(props: {
                                                         let col = item.color.find((i: { img: string }) => {
                                                             return i.img === imgURL
                                                         })
-                                                        console.log(item.qty)
                                                         const color = col === undefined ? [] : col.color
                                                         dispatch(addToCart(
                                                             {
@@ -166,6 +167,7 @@ export default function CardProductsHome(props: {
                                                 </StyledBadge>
                                             </IconButton>
                                             <IconButton
+                                                aria-labelledby="addToWishList"
                                                 onClick={() => {
                                                     if (user) {
                                                         let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement

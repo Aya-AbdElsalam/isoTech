@@ -62,10 +62,11 @@ export default function WishList() {
                                 <TableCell >{row.price}$ </TableCell>
                                 <TableCell >
                                     <Stack flexDirection={"row"} justifyContent={"center"}>
-                                        <IconButton onClick={() => { dispatch(deleteFromwishList(row)) }}>
+                                        <IconButton aria-labelledby="deleteFromWishList" onClick={() => { dispatch(deleteFromwishList(row)) }}>
                                             <DeleteOutline sx={{ my: "auto", cursor: "pointer", "&:hover": { color: "red" } }} />
                                         </IconButton>
                                         <Button variant="contained"
+                                            aria-labelledby="addToCart"
                                             onClick={(() => {
                                                 dispatch(addToCart(
                                                     row
@@ -82,6 +83,7 @@ export default function WishList() {
                     </TableBody>
                 </Table>
             </TableContainer><Button
+                aria-labelledby="clear"
                 onClick={(() => {
                     dispatch(clearWishList());
                 })}

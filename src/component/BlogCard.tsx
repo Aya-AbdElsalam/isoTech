@@ -36,7 +36,7 @@ export default function BlogCard(props: { loading: boolean; admin?: boolean; blo
                             <Typography level="body-sm">{b.date}</Typography>
                             <Stack flexDirection={"row"}>
                                 {props.admin && <IconButton
-                                    aria-label="bookmark Bahamas Islands"
+                                    aria-label="edit"
                                     variant="plain"
                                     color="neutral"
                                     onClick={() => {
@@ -49,6 +49,7 @@ export default function BlogCard(props: { loading: boolean; admin?: boolean; blo
                                     sx={buttonSx}
                                     type="submit"
                                     disabled={load}
+                                    aria-labelledby="submit"
                                     onClick={() => {
                                         setLoading(true)
                                         fetch(`https://isotechdata.onrender.com/Blogs/${b.id}`, {

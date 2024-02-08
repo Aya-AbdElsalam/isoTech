@@ -172,6 +172,7 @@ export default function EditProduct() {
                         )}
                     </Box>
                     {loadingProduct ? <Button id="inputFile1" component="label"
+                        aria-labelledby="upload"
                         variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                         Upload Default Image
                         <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -290,7 +291,7 @@ export default function EditProduct() {
                             />
                             <Box sx={{ flexGrow: "1" }}>
                                 <Button id="inputFile1" component="label"
-
+                                    aria-labelledby="upload"
                                     variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                                     Upload image
                                     <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -321,14 +322,16 @@ export default function EditProduct() {
                                     {imgTxt?.map((i) => {
                                         return (
                                             <Typography display={"inline-block"} fontSize={"14px"} sx={{ display: "inline-flex", alignItems: "center" }}>
-                                                {i.img} <IconButton onClick={() => {
-                                                    setImgTxt(imgTxt.filter((img) => {
-                                                        return img.id !== i.id
-                                                    }))
-                                                    setImg(img.filter((img) => {
-                                                        return img.id !== i.id
-                                                    }))
-                                                }}><CancelPresentationOutlined sx={{ fontSize: "14px" }} /></IconButton>
+                                                {i.img} <IconButton
+                                                    aria-labelledby="img"
+                                                    onClick={() => {
+                                                        setImgTxt(imgTxt.filter((img) => {
+                                                            return img.id !== i.id
+                                                        }))
+                                                        setImg(img.filter((img) => {
+                                                            return img.id !== i.id
+                                                        }))
+                                                    }}><CancelPresentationOutlined sx={{ fontSize: "14px" }} /></IconButton>
                                             </Typography>
                                         )
                                     })}
@@ -363,6 +366,7 @@ export default function EditProduct() {
 
                                 <Box sx={{ position: 'relative' }}>
                                     <Button
+                                        aria-labelledby="submit"
                                         variant="contained"
                                         sx={buttonSx}
                                         type="submit"
@@ -388,6 +392,7 @@ export default function EditProduct() {
                             </Box>
 
                             <Button
+                                aria-labelledby="cancel"
                                 variant="outlined"
                                 color="error"
                                 onClick={(e) => {

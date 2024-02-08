@@ -78,7 +78,7 @@ export default function AboutUs() {
                             Customer feedback is highly valued at Company XYZ. The company actively listens to its customers, taking note of their suggestions and needs. This customer-centric approach allows the company to continually improve its products, ensuring they remain relevant and meet the evolving demands of the market.
                         </Typography>
                         <Link to={"Shop"} >
-                            <Button sx={{
+                            <Button aria-labelledby="explore" sx={{
                                 background: "var(--btn--main)", color: "var(--btn--txt)", '&:hover': {
                                     background: "var(--btn--hover)"
                                 },

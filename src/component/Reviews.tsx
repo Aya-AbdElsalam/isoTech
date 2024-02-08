@@ -106,31 +106,31 @@ export default function Reviews() {
                             minRows={2}
                             maxRows={4}
                             startDecorator={<Box sx={{ display: 'flex', gap: 0.5, flex: 1, flexWrap: "wrap" }}>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('👍')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('👍')} aria-labelledby="emoji">
                                     👍
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😍')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😍')} aria-labelledby="emoji">
                                     😍
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🎊')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🎊')} aria-labelledby="emoji">
                                     🎊
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😘')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😘')} aria-labelledby="emoji">
                                     😘
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🤣')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🤣')} aria-labelledby="emoji">
                                     🤣
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🥳')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('🥳')} aria-labelledby="emoji">
                                     🥳
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😡')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😡')} aria-labelledby="emoji">
                                     😡
                                 </IconButton>
-                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😤')}>
+                                <IconButton variant="outlined" color="neutral" onClick={addEmoji('😤')} aria-labelledby="emoji">
                                     😤
                                 </IconButton>
-                                <Button variant="outlined" color="neutral" type='submit' onClick={(e) => {
+                                <Button variant="outlined" color="neutral" aria-labelledby="send" type='submit' onClick={(e) => {
                                     e.preventDefault()
                                     if (name == "") {
                                         setE(true)

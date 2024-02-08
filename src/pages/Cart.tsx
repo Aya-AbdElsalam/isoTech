@@ -64,7 +64,7 @@ export default function Cart() {
                                             }
                                         }}>
                                         </TextField>
-                                        <IconButton onClick={(() => {
+                                        <IconButton aria-labelledby="deleteFromCart" onClick={(() => {
                                             dispatch(deleteFromCart(row));
                                         })}>
                                             <DeleteOutline sx={{ my: "auto", cursor: "pointer", "&:hover": { color: "red" } }} />
@@ -91,6 +91,7 @@ export default function Cart() {
                     </TableBody>
                 </Table>
             </TableContainer><Button
+                aria-labelledby="clear"
                 onClick={(() => {
                     dispatch(clear());
                 })}

@@ -84,6 +84,7 @@ export default function ProductDetails() {
                                     }}></TextField>
                                 </Box>
                                 <Button variant="contained"
+                                    aria-labelledby="addToCart"
                                     onClick={() => {
                                         if (user) {
                                             let imgChange = document.getElementById(`${products.id}${products.price}`) as HTMLImageElement

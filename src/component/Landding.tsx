@@ -23,7 +23,7 @@ export default function Landding() {
 
                         Which can vary depending on the brand and model electronic device.</Typography>
                     <Link to={"../Shop"}>
-                        <Button onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", backgroundSize: "cover", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
+                        <Button aria-labelledby="mobile" onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", backgroundSize: "cover", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
                     </Link>
                 </Stack>
                 <Stack width={"300px"} flexGrow={1} gap={3}>
@@ -36,7 +36,7 @@ export default function Landding() {
                             Mobile phone technology has advanced rapidly over the years, with various
                         </Typography>
                         <Link to={"../Shop"}>
-                            <Button onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
+                            <Button aria-labelledby="mobile" onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
                         </Link>
                     </Stack>
                     <Stack p={"20px"} gap={1} sx={{ background: `url(${bgphone2})`, backgroundSize: "cover" }} borderRadius={"15px"}>
@@ -47,7 +47,7 @@ export default function Landding() {
                             Mobile phone technology has advanced rapidly over the years, with various
                         </Typography>
                         <Link to={"../Shop"}>
-                            <Button onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
+                            <Button aria-labelledby="mobile" onClick={() => dispatch(FilterCat("Mobile"))} sx={{ width: "100px", color: "white", background: "var(--btn--main)", "&:hover": { background: "var(--btn--hover)" } }}>SHOP NOW</Button>
                         </Link>
                     </Stack>
                 </Stack>
@@ -56,7 +56,7 @@ export default function Landding() {
                 <Stack minHeight={"120px"} borderRadius={"15px"} width={"300px"} flexGrow={1} sx={{ background: `url(${accBG})`, backgroundSize: "cover" }} p={"20px"}>
                     <Typography variant="h1" fontSize={"25px"} color={"white"} fontWeight={"bold"}>
                         Accessories</Typography>
-                    <Button sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
+                    <Button aria-labelledby="Accessories" sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
                         dispatch(FilterCat("Accessories"))
                         navigate("../Shop")
                     })}>
@@ -67,7 +67,7 @@ export default function Landding() {
                 <Stack width={"300px"} borderRadius={"15px"} minHeight={"120px"} flexGrow={1} sx={{ background: `url(${watchBG})`, backgroundSize: "cover" }} p={"20px"}>
                     <Typography variant="h1" fontSize={"25px"} color={"white"} fontWeight={"bold"}>
                         Watch</Typography>
-                    <Button sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
+                    <Button aria-labelledby="watch" sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
                         dispatch(FilterCat("watch"));
                         navigate("../Shop")
                     })}>
@@ -79,7 +79,7 @@ export default function Landding() {
                 <Stack width={"300px"} borderRadius={"15px"} minHeight={"120px"} flexGrow={1} sx={{ background: `url(${cameraBG})`, backgroundSize: "cover" }} p={"20px"}>
                     <Typography variant="h1" fontSize={"25px"} color={"white"} fontWeight={"bold"}>
                         Camera</Typography>
-                    <Button sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
+                    <Button aria-labelledby="camera" sx={{ color: "white", textDecoration: "underline", justifyContent: "flex-start", fontWeight: "bold" }} onClick={(() => {
                         dispatch(FilterCat("camera"));
                         navigate("../Shop")
                     })}>

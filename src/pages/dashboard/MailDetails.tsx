@@ -60,6 +60,7 @@ export default function MailDetails() {
                         <Skeleton variant="rectangular" animation={"wave"} sx={{ width: "100%", height: "300px" }} />}
                 </Card>
                 <Button
+                    aria-labelledby="back"
                     variant="solid"
                     size="md"
                     color="primary"

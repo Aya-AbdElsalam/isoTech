@@ -25,7 +25,7 @@ export default function Blog() {
             <Container sx={{ my: "40px" }}>
                 <BlogCard loading={loading} blogs={blogs} admin={true} />
                 <Link to="addBlog">
-                    <Button sx={{ mb: "40px", mt: "15px" }} variant='contained'>ADD BLOG</Button>
+                    <Button sx={{ mb: "40px", mt: "15px" }} variant='contained' aria-labelledby="addBlog">ADD BLOG</Button>
                 </Link>
             </Container>
         </>

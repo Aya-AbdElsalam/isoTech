@@ -106,6 +106,7 @@ export default function SignUp() {
                     {alert && <Alert severity="error">This email has already exist, <Link style={{ textDecoration: "underline" }} to={"../signIn"}>Sign In</Link></Alert>
                     }
                     {loading ? (<Button
+                        aria-labelledby="sign up"
                         variant="contained"
                         type="submit"
                         sx={{

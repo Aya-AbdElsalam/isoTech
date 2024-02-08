@@ -122,6 +122,7 @@ export default function EditTeam() {
                         )}
                     </Box>
                     {loadingMember ? <Button id="inputFile1" component="label"
+                        aria-labelledby="upload"
                         variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                         Upload  Image
                         <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -203,6 +204,7 @@ export default function EditTeam() {
 
                                 <Box sx={{ position: 'relative' }}>
                                     <Button
+                                        aria-labelledby="submit"
                                         variant="contained"
                                         sx={buttonSx}
                                         type="submit"
@@ -228,6 +230,7 @@ export default function EditTeam() {
                             </Box>
 
                             <Button
+                                aria-labelledby="cancel"
                                 variant="outlined"
                                 color="error"
                                 onClick={(e) => {

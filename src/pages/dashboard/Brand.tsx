@@ -101,6 +101,7 @@ export default function Brand() {
                     <Stack direction={"row"} gap={2} >
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
+                                aria-labelledby="submit"
                                 sx={buttonSx}
                                 type="submit"
                                 disabled={load}
@@ -132,7 +133,7 @@ export default function Brand() {
                                 />
                             )}
                         </Box>
-                        <IconButton onClick={() => {
+                        <IconButton aria-labelledby="edit" onClick={() => {
                             setImg(img.img)
                             setOpenADD(true)
                             setAction("edit")
@@ -172,7 +173,7 @@ export default function Brand() {
                     sx={{ mt: "50px" }}
                     pageSizeOptions={[8]}
                     disableRowSelectionOnClick />
-                <Button sx={{ mb: "40px", mt: "15px" }} variant='contained' onClick={() => {
+                <Button aria-labelledby="add" sx={{ mb: "40px", mt: "15px" }} variant='contained' onClick={() => {
                     setOpenADD(true)
                     setImg("")
                     seterrorImg(false)
@@ -199,6 +200,7 @@ export default function Brand() {
                                     <img src={img} alt="mainImg" style={{ width: "100%", height: "350px" }} />
                                 </Box>
                                 <Button id="inputFile1" component="label"
+                                    aria-labelledby="upload"
                                     fullWidth
                                     variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", maxWidth: "350px" }} >
                                     Upload  Image
@@ -222,6 +224,7 @@ export default function Brand() {
 
                                         <Box sx={{ position: 'relative' }}>
                                             <Button
+                                                aria-labelledby="submit"
                                                 variant="contained"
                                                 sx={buttonSx}
                                                 type="submit"
@@ -290,6 +293,7 @@ export default function Brand() {
                                     </Box>
 
                                     <Button
+                                        aria-labelledby="cancel"
                                         variant="outlined"
                                         color="error"
                                         onClick={(e) => {

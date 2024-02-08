@@ -25,11 +25,13 @@ import { AppDispatch } from "../../rtk/Store";
 import { styled } from '@mui/material/styles';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 Quill.register("modules/imageActions", ImageActions);
 Quill.register("modules/imageFormats", ImageFormats);
 export default function AddBlog() {
     const [open, setOpen] = React.useState(false);
     const [load, setLoading] = useState(false)
+    const navigate = useNavigate()
     const [success] = React.useState(false);
     const buttonSx = {
         ...(success && {
@@ -112,6 +114,7 @@ export default function AddBlog() {
                             <img src={img} alt="mainImg" style={{ width: "350px", height: "350px" }} />
                         </Box>
                         <Button id="inputFile1" component="label"
+                            aria-labelledby="upload"
                             variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "350px" }} >
                             Upload  Article's Image
                             <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -171,6 +174,7 @@ export default function AddBlog() {
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Box sx={{ position: 'relative' }}>
                                 <Button
+                                    aria-labelledby="submit"
                                     variant="contained"
                                     sx={buttonSx}
                                     type="submit"
@@ -195,10 +199,11 @@ export default function AddBlog() {
                         </Box>
 
                         <Button
+                            aria-labelledby="cancel"
                             variant="outlined"
                             color="error"
                             onClick={(e) => {
-                                // navigate("../team");
+                                navigate("../blogs");
                             }}
                         >
                             Cancel
@@ -225,7 +230,6 @@ AddBlog.modules = {
     toolbar: [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
         ['blockquote', 'code-block'],
-
         [{ 'header': 1 }, { 'header': 2 }],               // custom button values
         [{ 'list': 'ordered' }, { 'list': 'bullet' }],
         [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript

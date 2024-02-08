@@ -96,6 +96,7 @@ export default function AddTeam() {
                         <img src={img} alt="mainImg" style={{ width: "350px", height: "350px" }} />
                     </Box>
                     <Button id="inputFile1" component="label"
+                        aria-labelledby="upload"
                         variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "100%" }} >
                         Upload  Image
                         <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -174,6 +175,7 @@ export default function AddTeam() {
 
                             <Box sx={{ position: 'relative' }}>
                                 <Button
+                                    aria-labelledby="submit"
                                     variant="contained"
                                     sx={buttonSx}
                                     type="submit"
@@ -199,6 +201,7 @@ export default function AddTeam() {
                         </Box>
                         <Button
                             variant="outlined"
+                            aria-labelledby="cancel"
                             color="error"
                             onClick={(e) => {
                                 navigate("../team");

@@ -136,6 +136,7 @@ export default function EditBlog() {
                             {loading ? <img src={img} alt="mainImg" style={{ width: "350px", height: "350px" }} /> : <Skeleton variant="rectangular" width={"350px"} height={"350px"} />}
                         </Box>
                         {loading ? <Button id="inputFile1" component="label"
+                            aria-labelledby="upload"
                             variant="contained" startIcon={<CloudUploadIcon />} sx={{ height: "57px", width: "350px" }} >
                             Upload  Article's Image
                             <VisuallyHiddenInput type="file" onChange={(e) => {
@@ -190,6 +191,7 @@ export default function EditBlog() {
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Box sx={{ position: 'relative' }}>
                                 {loading ? <Button
+                                    aria-labelledby="submit"
                                     variant="contained"
                                     sx={buttonSx}
                                     type="submit"
@@ -215,6 +217,7 @@ export default function EditBlog() {
                             </Box>
                         </Box>
                         <Button
+                            aria-labelledby="cancel"
                             variant="outlined"
                             color="error"
                             onClick={(e) => {

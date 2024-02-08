@@ -75,7 +75,7 @@ export default function BlogHomeDetails() {
                         activeStep={activeStep}
                         sx={{ maxWidth: "100%", mt: "60px", flexGrow: 1, mx: "auto", background: "transparent" }}
                         nextButton={
-                            <Button size="small" onClick={handleNext} disabled={activeStep === blogs.length - 1}>
+                            <Button size="small" aria-labelledby="next" onClick={handleNext} disabled={activeStep === blogs.length - 1}>
                                 Next
                                 {theme.direction === 'rtl' ? (
                                     <KeyboardArrowLeft />
@@ -85,7 +85,7 @@ export default function BlogHomeDetails() {
                             </Button>
                         }
                         backButton={
-                            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                            <Button size="small" aria-labelledby="back" onClick={handleBack} disabled={activeStep === 0}>
                                 {theme.direction === 'rtl' ? (
                                     <KeyboardArrowRight />
                                 ) : (

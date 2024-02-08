@@ -87,7 +87,7 @@ export default function Products() {
                                     sx={buttonSx}
                                     type="submit"
                                     variant='contained' color='error'
-
+                                    aria-labelledby="submit"
                                     disabled={load}
                                     onClick={(() => {
                                         setLoading(true)
@@ -158,6 +158,7 @@ export default function Products() {
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
                                 sx={buttonSx}
+                                aria-labelledby="submit"
                                 type="submit"
                                 disabled={load}
                                 onClick={() => {
@@ -191,7 +192,7 @@ export default function Products() {
                             )}
                         </Box>
 
-                        <IconButton onClick={() => {
+                        <IconButton aria-labelledby="edit" onClick={() => {
                             navigate(`../products/edit/${id.id}`)
                         }}><Edit /> </IconButton>
 
@@ -235,7 +236,7 @@ export default function Products() {
                 pageSizeOptions={[8]}
                 disableRowSelectionOnClick />
             <Link to="addProduct">
-                <Button sx={{ mb: "40px", mt: "15px" }} variant='contained' >ADD PRODUCT</Button>
+                <Button aria-labelledby="add" sx={{ mb: "40px", mt: "15px" }} variant='contained' >ADD PRODUCT</Button>
             </Link>
         </Box></>
     );

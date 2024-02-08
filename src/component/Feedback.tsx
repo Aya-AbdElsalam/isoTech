@@ -73,7 +73,7 @@ export default function FeedBack() {
         activeStep={activeStep}
         sx={{ maxWidth: 400, flexGrow: 1, mx: "auto", my: "40px", background: "transparent" }}
         nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === feedback.length}>
+          <Button aria-labelledby="next" size="small" onClick={handleNext} disabled={activeStep === feedback.length}>
             Next
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
@@ -83,7 +83,7 @@ export default function FeedBack() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button aria-labelledby="back" size="small" onClick={handleBack} disabled={activeStep === 0}>
             {theme.direction === 'rtl' ? (
               <KeyboardArrowRight />
             ) : (

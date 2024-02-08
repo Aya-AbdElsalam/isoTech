@@ -57,7 +57,7 @@ function ResponsiveAppBar() {
           </Typography>
           {/* mobile media */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+            <IconButton aria-labelledby="menu" variant="outlined" color="neutral" onClick={() => setOpen(true)}>
               <Menu />
             </IconButton>
             <Drawer open={open} onClose={() => setOpen(false)} >
@@ -82,6 +82,7 @@ function ResponsiveAppBar() {
                     setOpen(false)
                     dispatch(FilterCat("all"));
                   }}
+                  aria-labelledby="all"
                   sx={{ my: 2, color: 'black', display: 'block' }}
                 >
                   <NavLink
@@ -118,6 +119,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
+                aria-labelledby="all"
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 onClick={(() => {
                   dispatch(FilterCat("all"));

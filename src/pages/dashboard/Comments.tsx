@@ -94,6 +94,7 @@ export default function Comments() {
                                 <IconButton
                                     sx={buttonSx}
                                     type="submit"
+                                    aria-labelledby="submit"
                                     disabled={load}
                                     onClick={() => {
                                         setLoading(true)
