@@ -103,7 +103,7 @@ export default function CardProductsHome(props: {
                                     <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                         <Box>
                                             <Link to={`../Shop/${item.id}/${item.title}`}>
-                                                <Typography fontSize={"13px"} fontWeight={"bold"} height={"max-content"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
+                                                <Typography fontSize={"13px"} fontWeight={"bold"} height={"100px"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
                                                     {item.title}
                                                 </Typography>
                                             </Link>
