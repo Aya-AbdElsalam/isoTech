@@ -22,6 +22,6 @@ export default function TrendingProducts() {
     }, [dispatch]);
 
     return (
-        <CardProductsHome action2={FilterHomeProducts("")} loading={loading} products={products} Categories={Categories} />
+        <CardProductsHome action2={FilterHomeProducts} loading={loading} products={products} Categories={Categories} />
     )
 }

@@ -21,7 +21,7 @@ export default function TrendingProductsWeek() {
         dispatch(fetchcategories());
     }, [dispatch]);
     return (
-        <CardProductsHome action2={FilterHomeProductsWeek("")} loading={loading} products={products} Categories={Categories} />
+        <CardProductsHome action2={FilterHomeProductsWeek} loading={loading} products={products} Categories={Categories} />
 
     )
 }
