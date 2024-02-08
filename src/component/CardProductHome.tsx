@@ -84,7 +84,7 @@ export default function CardProductsHome(props: {
                         img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
                     }, index: string | number) => (
 
-                        <Paper key={index} sx={{ overflow: "hidden", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "content-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                        <Paper key={index} sx={{ mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "content-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                             {
                                 props.loading ? (
                                     <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
