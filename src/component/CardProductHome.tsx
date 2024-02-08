@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Container, Box, Tab, Tabs, Skeleton } from '@mui/material';
+import { Container, Box, Tab, Tabs, Skeleton, Typography } from '@mui/material';
 import SubTitle from './SubTitle';
 import { AppDispatch, RootState } from '../rtk/Store';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { fetchProductsTrending, fetchcategories } from '../rtk/Slices/ProductSlice';
 import { Stack } from '@mui/material';
-import { IconButton, Paper, Typography } from "@mui/material";
+import { IconButton, Paper } from "@mui/material";
 import { Favorite, ShoppingCart } from "@mui/icons-material";
 import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -103,7 +103,7 @@ export default function CardProductsHome(props: {
                                     <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                         <Box>
                                             <Link to={`../Shop/${item.id}/${item.title}`}>
-                                                <Typography gutterBottom variant="body2" fontSize={"13px"} fontWeight={"bold"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14px" } }}>
+                                                <Typography fontSize={"13px"} fontWeight={"bold"} height={"max-content"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
                                                     {item.title}
                                                 </Typography>
                                             </Link>
