@@ -84,7 +84,7 @@ export default function CardProductsHome(props: {
                         {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
                             img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
                         }, index: string | number) => (
-                            <Paper key={index} sx={{ height: "auto", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                            <Paper key={index} sx={{ overflow: "auto", height: "auto", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                                 {
                                     props.loading ? (
                                         <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
@@ -102,7 +102,7 @@ export default function CardProductsHome(props: {
                                 {props.loading ? (
                                     <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                         <Box>
-                                            <Link to={`../Shop/${item.id}/${item.title}`} style={{ textWrap: "wrap", overflow: "auto" }} >
+                                            <Link to={`../Shop/${item.id}/${item.title}`} style={{ textWrap: "wrap" }} >
                                                 <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
                                                     {item.title}
                                                 </Typography>
