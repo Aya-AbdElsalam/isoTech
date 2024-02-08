@@ -65,9 +65,9 @@ export default function CardProductsHome(props: {
                     aria-label="scrollable force tabs example"
                 >
                     <Tab value={"ALL"} label={"ALL"} onClick={(() => { dispatch(props.action2("all")) })} />
-                    {props.Categories.map((c: { categorie: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => {
+                    {props.Categories.map((c: { categorie: string }, index: number) => {
                         return (
-                            <Tab value={c.categorie} label={c.categorie} onClick={(() => { dispatch(props.action2(c.categorie)) })} />
+                            <Tab key={index} value={c.categorie} label={c.categorie} onClick={(() => { dispatch(props.action2(c.categorie)) })} />
 
                         )
                     })}
@@ -103,7 +103,7 @@ export default function CardProductsHome(props: {
                                     <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                         <Box>
                                             <Link to={`../Shop/${item.id}/${item.title}`}>
-                                                <Typography gutterBottom variant="body2" fontWeight={"bold"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14px" } }}>
+                                                <Typography gutterBottom variant="body2" fontSize={"13px"} fontWeight={"bold"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14px" } }}>
                                                     {item.title}
                                                 </Typography>
                                             </Link>
