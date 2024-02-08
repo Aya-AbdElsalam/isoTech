@@ -88,7 +88,11 @@ export default function SignIn() {
                                 setAlert(false)
 
                             }}
-                        /></>) : <><Skeleton variant="rounded" height={"40px"} sx={{ my: "20px" }}></Skeleton><Skeleton variant="rounded" height={"40px"}></Skeleton></>}
+                        />
+                        <Alert variant="filled" severity="info">
+                            {"to test dashboard".toUpperCase()} email:admin@admin.com/ pass:admin
+                        </Alert>
+                    </>) : <><Skeleton variant="rounded" height={"40px"} sx={{ my: "20px" }}></Skeleton><Skeleton variant="rounded" height={"40px"}></Skeleton></>}
                     {alert && <Alert severity="error">Password or Email Is Incorrect </Alert>
                     }
                     {loading ? (<Button
