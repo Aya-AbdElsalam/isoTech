@@ -73,7 +73,7 @@ export default function CardProductsHome(props: {
                     })}
                 </Tabs>
                 <Tabs
-                    sx={{ my: "10px", alignItems: "center", textWrap: "wrap" }}
+                    sx={{ my: "10px", alignItems: "center", overflow: "visible" }}
                     variant="scrollable"
                     scrollButtons
                     allowScrollButtonsMobile
@@ -84,7 +84,7 @@ export default function CardProductsHome(props: {
                         img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
                     }, index: string | number) => (
 
-                        <Paper key={index} sx={{ mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "content-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                        <Paper key={index} sx={{ overflow: "visible", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "content-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                             {
                                 props.loading ? (
                                     <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
@@ -209,9 +209,11 @@ export default function CardProductsHome(props: {
                         </Paper>
                         // 
                     ))}
-                    <AlertSign handleCloseAdd={() => handleCloseAdd()} handleCloseSign={() => { handleCloseSign() }} addvalue={add} signValue={sign}></AlertSign>
                 </Tabs>
+
             </Box>
+            <AlertSign handleCloseAdd={() => handleCloseAdd()} handleCloseSign={() => { handleCloseSign() }} addvalue={add} signValue={sign}></AlertSign>
+
         </Container>
     )
 }
