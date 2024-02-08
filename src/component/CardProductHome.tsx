@@ -103,10 +103,7 @@ export default function CardProductsHome(props: {
                                 <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                     <Box>
                                         <Link to={`../Shop/${item.id}/${item.title}`}  >
-                                            <Tab wrapped label={item.title}></Tab>
-                                            {/* <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
-                                                {item.title.slice(0, 23)}
-                                            </Typography> */}
+                                            <Tab wrapped label={item.title} sx={{ padding: 0, textAlign: "left", fontWeight: "bold", fontSize: "13px", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}></Tab>
                                         </Link>
                                         <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
                                             ${item.price}
