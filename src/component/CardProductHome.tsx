@@ -84,7 +84,7 @@ export default function CardProductsHome(props: {
                         {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
                             img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
                         }, index: string | number) => (
-                            <Paper key={index} sx={{ mx: "5px", textWrap: "wrap", overflow: "hidden", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                            <Paper key={index} sx={{ height: "auto", mx: "5px", textWrap: "wrap", overflow: "hidden", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                                 {
                                     props.loading ? (
                                         <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
@@ -100,34 +100,37 @@ export default function CardProductsHome(props: {
                                         <Skeleton variant="rectangular" width={"150px"} height={"200px"} />
                                     )}
                                 {props.loading ? (
-                                    <Box sx={{ pr: 2 }}>
-                                        <Link to={`../Shop/${item.id}/${item.title}`}>
-                                            <Typography gutterBottom variant="body2" fontWeight={"bold"} sx={{ cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14.5px" } }}>
-                                                {item.title}
+                                    <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
+                                        <Box>
+                                            <Link to={`../Shop/${item.id}/${item.title}`}>
+                                                <Typography gutterBottom variant="body2" fontWeight={"bold"} sx={{ textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14px" } }}>
+                                                    {item.title}
+                                                </Typography>
+                                            </Link>
+                                            <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
+                                                ${item.price}
                                             </Typography>
-                                        </Link>
-                                        <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
-                                            ${item.price}
-                                        </Typography>
-                                        {item.color ? <Stack gap={1} flexDirection={"row"} my={"10px"}>
-                                            {(item.color.length != 0) ? item.color.map((i: { color: string }, index: number) => (
-                                                <Box
-                                                    key={index}
-                                                    onClick={((e) => {
-                                                        const { target } = e;
-                                                        if (target instanceof HTMLElement) {
-                                                            let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
-                                                            let img2 = item.color.find((i: { color: string }) => {
-                                                                return i.color === target.classList[0]
-                                                            })
-                                                            imgChange.src = img2.img
-                                                        }
-                                                    })}
-                                                    className={i.color}
-                                                    sx={{ backgroundColor: `${i.color}`, cursor: "pointer" }} borderRadius={"50%"} width={"20px"} height={"20px"} border={"1px solid black"} >
-                                                </Box>
-                                            )) : <></>}
-                                        </Stack> : <></>}
+
+                                            {item.color ? <Stack gap={1} flexDirection={"row"} my={"10px"}>
+                                                {(item.color.length != 0) ? item.color.map((i: { color: string }, index: number) => (
+                                                    <Box
+                                                        key={index}
+                                                        onClick={((e) => {
+                                                            const { target } = e;
+                                                            if (target instanceof HTMLElement) {
+                                                                let imgChange = document.getElementById(`${item.id}${item.price}`) as HTMLImageElement
+                                                                let img2 = item.color.find((i: { color: string }) => {
+                                                                    return i.color === target.classList[0]
+                                                                })
+                                                                imgChange.src = img2.img
+                                                            }
+                                                        })}
+                                                        className={i.color}
+                                                        sx={{ backgroundColor: `${i.color}`, cursor: "pointer" }} borderRadius={"50%"} width={"20px"} height={"20px"} border={"1px solid black"} >
+                                                    </Box>
+                                                )) : <></>}
+                                            </Stack> : <></>}
+                                        </Box>
                                         <Stack flexDirection={"row"} gap={1}>
                                             <IconButton
                                                 onClick={() => {
@@ -198,7 +201,7 @@ export default function CardProductsHome(props: {
                                                 </StyledBadge>
                                             </IconButton>
                                         </Stack>
-                                    </Box>
+                                    </Stack>
                                 ) : (
                                     <Box sx={{ pt: 0.5 }}>
                                         <Skeleton />
