@@ -83,7 +83,8 @@ export default function CardProductsHome(props: {
                     {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
                         img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
                     }, index: string | number) => (
-                        <Paper key={index} sx={{ height: "500px", overflow: "hidden", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "border-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+
+                        <Paper key={index} sx={{ overflow: "hidden", mx: "5px", textWrap: "wrap", p: "10px", boxSizing: "content-box", minWidth: "200px", maxWidth: "201px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                             {
                                 props.loading ? (
                                     <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
@@ -101,11 +102,12 @@ export default function CardProductsHome(props: {
                             {props.loading ? (
                                 <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                     <Box>
-                                        {/* <Link to={`../Shop/${item.id}/${item.title}`}  > */}
-                                        <Typography fontSize={"13px"} fontWeight={"bold"} textOverflow={"clip"} sx={{ width: "100%", textWrap: "balance", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
-                                            {item.title}
-                                        </Typography>
-                                        {/* </Link> */}
+                                        <Link to={`../Shop/${item.id}/${item.title}`}  >
+                                            <Tab wrapped label={item.title}></Tab>
+                                            {/* <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
+                                                {item.title.slice(0, 23)}
+                                            </Typography> */}
+                                        </Link>
                                         <Typography display="block" variant="caption" color="var(--txt--second)" fontWeight={"bold"} fontSize={"14px"}>
                                             ${item.price}
                                         </Typography>
