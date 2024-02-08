@@ -101,8 +101,8 @@ export default function CardProductsHome(props: {
                             {props.loading ? (
                                 <Stack sx={{ pr: 2 }} justifyContent={"space-between"} height={"100%"}>
                                     <Box>
-                                        <Link to={`../Shop/${item.id}/${item.title}`} style={{ textWrap: "wrap" }} >
-                                            <Typography fontSize={"13px"} fontWeight={"bold"} sx={{ width: "100%", textWrap: "wrap", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
+                                        <Link to={`../Shop/${item.id}/${item.title}`}  >
+                                            <Typography fontSize={"13px"} fontWeight={"bold"} textOverflow={"clip"} sx={{ width: "100%", textWrap: "balance", cursor: "pointer", "&:hover": { color: "var(--btn--main)" } }}>
                                                 {item.title}
                                             </Typography>
                                         </Link>
