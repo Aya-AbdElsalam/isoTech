@@ -219,7 +219,7 @@ export default function Products() {
             <DataGrid
                 density='comfortable'
                 slots={{ toolbar: GridToolbar }}
-                rows={loading ? rows[0].slice(0, products.length - 1) : []}
+                rows={loading ? rows[0] : []}
                 columns={columns}
                 initialState={{
                     pagination: { paginationModel: { pageSize: 5 } },
