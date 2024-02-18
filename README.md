@@ -1,3 +1,31 @@
+# About the Project
+IsoTech is an e-commerce platform specializing in electronics, offering users the convenience of purchasing products online and accessing detailed information about each item. <br />
+
+**This site contains 27 pages**, including: Sign In, Sign Up, Home, 
+Shop, Product Details, Blog, Blog Details, About, Cart, Wish List, Contact Us, FAQs, Find Store 
+Location, Privacy Policy, and Terms of Service. Additionally, it features a dashboard with 
+sections such as Blog, Add Blog, Edit Blog, Brand, Comments, Products, Add Product, Edit 
+Product, Team, Add Member, Edit Information of Member, Mail, and Mail Details. 
+ <br />
+  <br />
+
+👉 **Live Demo :** https://iso-tech.vercel.app/
+
+# The site
+![isoTech](https://github.com/Aya-AbdElsalam/isoTech/assets/152267387/c7fe7b34-c0cc-47d3-8624-52d9f5453688)
+![IsoTech2](https://github.com/Aya-AbdElsalam/isoTech/assets/152267387/ee1cc2a3-5129-41a3-81a7-023f43b64c13)
+![dashboard](https://github.com/Aya-AbdElsalam/isoTech/assets/152267387/4297f759-29d7-4d75-b795-67233ad44dad)
+![dashboard2](https://github.com/Aya-AbdElsalam/isoTech/assets/152267387/2f4a65a9-8ca0-447f-af64-fd93096780c4)
+
+# Tools
+- React.ts
+- Redux Toolkit
+- MUI
+- RESTful API
+- Nivo 
+- React quill
+- React Hook Form
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
