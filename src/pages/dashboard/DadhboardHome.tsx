@@ -2,7 +2,7 @@ import { Stack } from "@mui/material";
 import CardDashboard from "../../component/CardDashboard";
 import { Group, LocalMall, Rocket, Visibility } from "@mui/icons-material";
 import BarChart from "../../component/barChart";
-import SunburstChart from "../../component/SunburstChart";
+import PieChart from "../../component/PieChart";
 import OrderActivity from "../../component/OrderActivity";
 import TopUsers from "../../component/Users";
 import Orders from "../../component/Order";
@@ -17,7 +17,7 @@ export default function DashboardHome() {
             </Stack>
             <Stack flexDirection={"row"} my={"20px"} gap={3} flexWrap={"wrap"}>
                 <BarChart />
-                <SunburstChart />
+                <PieChart />
             </Stack>
             <Stack flexDirection={"row"} my={"20px"} gap={3} flexWrap={"wrap"}>
                 <OrderActivity />

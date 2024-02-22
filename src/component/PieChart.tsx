@@ -2,10 +2,10 @@ import { Typography } from '@mui/joy'
 import { useEffect, useState } from 'react'
 import Paper from '@mui/material/Paper';
 import { ResponsivePie } from '@nivo/pie'
-export default function SunburstChart() {
+export default function PieChart() {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch("https://isotechdata.onrender.com/sunburstChart").then((res) => res.json()).then((data) => setData(data))
+        fetch("https://isotechdata.onrender.com/pieChart").then((res) => res.json()).then((data) => setData(data))
     })
     return (
         <Paper sx={{ width: "200px", flexGrow: 1, height: "500px", padding: "10px", boxSizing: "border-box" }} >

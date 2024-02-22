@@ -7,6 +7,7 @@
     "@mui/icons-material": "^5.15.5",
     "@mui/joy": "^5.0.0-beta.23",
     "@mui/lab": "^5.0.0-alpha.162",
+    "@mui/material": "^5.15.10",
     "@mui/styled-engine-sc": "^6.0.0-alpha.12",
     "@mui/x-data-grid": "^6.19.2",
     "@mui/x-data-grid-generator": "^6.19.2",
