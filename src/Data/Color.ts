@@ -1036,5 +1036,4 @@
             "rgb": "154,205,50"
         }
 ]
-    const AllColor=[]
 export const c= colors.map((i) =>(i.name.toLowerCase()))

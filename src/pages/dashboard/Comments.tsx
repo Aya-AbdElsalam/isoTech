@@ -135,9 +135,9 @@ export default function Comments() {
                     </Card>
                 )
             }
-            ) : Array.from(new Array(6)).map(() => (
+            ) : Array.from(new Array(6)).map((i, index) => (
                 <Card
-
+                    key={index}
                     variant="outlined"
                     sx={{ width: '100%', borderRadius: 0, '--Card-radius': "15px", my: "8px", boxSizing: "border-box" }}
                 >

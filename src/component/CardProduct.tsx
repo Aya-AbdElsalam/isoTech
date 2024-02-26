@@ -52,31 +52,30 @@ export default function CardProducts(props: {
             color: "white"
         },
     }));
-    // props.products.map((item) => {
-    //     console.log(item.color.length)
-
-    // })
     return (
         <Stack width={"400px"} flexGrow={3} flexDirection={"row"} gap={3} flexWrap={"wrap"} justifyContent={{ xs: props.justifyXs, sm: props.justifyXs, md: props.justifySm }}>
             {(props.loading ? props.products : Array.from(new Array(6))).map((item: {
                 img: string; categorie: string, qty: number, id: (number | string), title: string, price: number | string, color: any
             }, index: string | number) => (
-                <Paper key={index} sx={{ p: "10px", boxSizing: "border-box", width: "150px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Paper key={index} sx={{ p: "10px", boxSizing: "border-box", width: { xs: "100%", sm: "200px" }, display: "flex", flexDirection: { xs: "row", sm: "column" }, alignItems: "center" }}>
                     {
                         props.loading ? (
-                            <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px" }}>
-                                <img loading="lazy"
-                                    id={`${item.id}${item.price}`}
-                                    style={{ width: "100%", height: "200px" }}
-                                    alt={item.title}
-                                    src={(item.color && item.color.length >= 1) ? item.color[0].img : item.img}
-                                />
-                            </Link>
+                            <Box width={{ xs: "100px", sm: "auto" }} marginRight="10px">
+                                <Link to={`../Shop/${item.id}/${item.title}`} style={{ paddingLeft: "5px", paddingRight: "5px", width: "100%" }} >
+                                    <img loading="lazy"
+                                        id={`${item.id}${item.price}`}
+                                        style={{ width: "100%", height: "200px" }}
+                                        alt={item.title}
+                                        src={(item.color && item.color.length >= 1) ? item.color[0].img : item.img}
+                                    />
+                                </Link>
+                            </Box>
+
                         ) : (
-                            <Skeleton variant="rectangular" width={"150px"} height={"200px"} />
+                            <Skeleton variant="rectangular" width={"170px"} height={"200px"} />
                         )}
                     {props.loading ? (
-                        <Box sx={{ pr: 2 }}>
+                        <Box sx={{ pr: 2 }} width={"fit-content"}>
                             <Link to={`../Shop/${item.id}/${item.title}`}>
                                 <Typography gutterBottom variant="body2" fontWeight={"bold"} sx={{ cursor: "pointer", "&:hover": { color: "var(--btn--main)", fontSize: "14.5px" } }}>
                                     {item.title}

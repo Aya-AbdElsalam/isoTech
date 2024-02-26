@@ -1,4 +1,4 @@
-import { Autocomplete, Container, Stack, TextField, Typography, InputBase, styled, alpha } from "@mui/material";
+import { Autocomplete, Container, Stack, TextField, Typography, InputBase, styled, alpha, Alert } from "@mui/material";
 import Title from "../component/Title";
 import { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -49,12 +49,12 @@ export default function Shop() {
 
     }));
     const [search, setsearch] = React.useState("")
-    console.log(products)
     return (
         <>
             <Title title="PRODUCTS" />
             <Container sx={{ my: "60px" }}>
                 <Stack width={"100%"} sx={{ background: "white" }} p={"10px"} my={"30px"} flexDirection={"row"} alignItems={"center"}>
+
                     <Typography fontWeight={"bold"}>{loading && products.length} - Results </Typography>
                     <Search sx={{ height: "fit-content", width: "50%", mx: "auto", display: { xs: "none", md: "flex" }, flexDirection: "row-reverse", border: "1px solid" }}>
                         <SearchIconWrapper sx={{ background: "var(--btn--main)", color: "white" }}>
@@ -86,8 +86,11 @@ export default function Shop() {
                 </Stack>
 
                 <Stack direction={"row"} flexWrap={"wrap"} gap={4} alignItems={"flex-start"}>
+
                     <Filtercom />
+
                     <Stack display={{ xs: "flex", md: "none" }} width={"100%"} sx={{ background: "white" }} p={"10px"} my={"30px"} flexDirection={"row"} alignItems={"center"}>
+
                         <Search sx={{ height: "fit-content", display: "flex", flexDirection: "row-reverse", border: "1px solid" }}>
                             <SearchIconWrapper sx={{ background: "var(--btn--main)", color: "white" }}>
                                 <SearchIcon />
@@ -107,9 +110,12 @@ export default function Shop() {
                             />
                         </Search>
 
-
                     </Stack>
-                    <CardProducts loading={loading} products={products} justifyXs='center' justifySm='flex-start' />
+                    {loading && products.length === 0 && <Alert sx={{ flexGrow: "1", width: "500px" }} variant="outlined" severity="info">
+                        No products
+                    </Alert>}
+                    <CardProducts loading={loading} products={products} justifyXs='center' justifySm='space-evenly' />
+
                 </Stack>
             </Container>
 

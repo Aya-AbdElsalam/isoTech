@@ -183,8 +183,9 @@ export default function PrivacyPolicy() {
                                 </TableRow>
                             </TableHead>
                             <TableBody sx={{ border: "1px solid var(--txt--second)" }}>
-                                {rows.map((row) => (
+                                {rows.map((row, index) => (
                                     <TableRow
+                                        key={index}
                                         sx={{ border: "1px solid var(--txt--second)" }}
                                     >
                                         <TableCell component="th" scope="row">

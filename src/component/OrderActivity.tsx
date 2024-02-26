@@ -47,6 +47,7 @@ export default function OrderActivity() {
                 {data.map((i: any) => {
                     return (
                         <Step
+                            key={i}
                             indicator={
                                 <StepIndicator variant="solid" color="success">
                                     {i.state === "Delivered" ? <DeliveryDining /> : i.state === "Pick Up" ? <SentimentSatisfied /> : <Cancel />}

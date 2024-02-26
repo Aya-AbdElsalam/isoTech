@@ -285,9 +285,9 @@ export default function AddProduct() {
                                 }} />
                             </Button>
                             <Box id="2345">
-                                {imgTxt?.map((i) => {
+                                {imgTxt?.map((i, index) => {
                                     return (
-                                        <Typography display={"inline-block"} fontSize={"14px"} sx={{ display: "inline-flex", alignItems: "center" }}>
+                                        <Typography key={index} display={"inline-block"} fontSize={"14px"} sx={{ display: "inline-flex", alignItems: "center" }}>
                                             {i.img} <IconButton aria-labelledby="img" onClick={() => {
                                                 setImgTxt(imgTxt.filter((img) => {
                                                     return img.id !== i.id
@@ -305,9 +305,9 @@ export default function AddProduct() {
                     <Stack mt={"10px"} direction={"row"} gap={2} justifyContent={"center"} borderTop={"1px solid"} borderBottom={"1px solid"} mb={"20px"}>
                         <Box width={"120px"} >
                             <Typography fontSize={"17px"} fontWeight={"bold"}>Color</Typography>
-                            {color.length >= 1 && color.map((i) => {
+                            {color.length >= 1 && color.map((i, index) => {
                                 return (
-                                    <Typography fontSize={"14px"} sx={{ alignItems: "center" }}>
+                                    <Typography fontSize={"14px"} sx={{ alignItems: "center" }} key={index}>
                                         {i}
                                     </Typography>
                                 )
@@ -315,9 +315,9 @@ export default function AddProduct() {
                         </Box>
                         <Box width={"150px"}>
                             <Typography fontSize={"17px"} fontWeight={"bold"}>Img</Typography>
-                            {imgTxt?.map((i: { img: string }) => {
+                            {imgTxt?.map((i: { img: string }, index) => {
                                 return (
-                                    <Typography fontSize={"14px"} sx={{ alignItems: "center" }}>
+                                    <Typography fontSize={"14px"} sx={{ alignItems: "center" }} key={index}>
                                         {i.img}
                                     </Typography>
                                 )

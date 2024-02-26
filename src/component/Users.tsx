@@ -15,10 +15,10 @@ export default function TopUsers() {
             {data.map((i: {
                 phone: string;
                 TotalBuy: string; Name: string, country: string
-            }) => {
+            }, index) => {
                 return (
                     <>
-                        <Stack flexDirection={"row"} gap={2} justifyContent={"space-between"} my={"20px"}>
+                        <Stack flexDirection={"row"} gap={2} justifyContent={"space-between"} my={"20px"} key={index}>
                             <Box width={"200px"}>
                                 <Typography fontWeight={"bold"}>{i.Name}</Typography>
                                 <Stack fontSize={"17px"} sx={{ opacity: ".7" }} alignItems={"center"} flexDirection={"row"}>

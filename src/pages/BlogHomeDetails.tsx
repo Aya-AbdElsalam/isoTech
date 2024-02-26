@@ -94,8 +94,8 @@ export default function BlogHomeDetails() {
                             </Button>
                         }
                     />
-                </> : Array.from(new Array(16)).map(() => {
-                    return <Skeleton width={"100%"} height={"50px"}></Skeleton>
+                </> : Array.from(new Array(16)).map((i, index) => {
+                    return <Skeleton width={"100%"} height={"50px"} key={index}></Skeleton>
                 })}
 
             </Box>

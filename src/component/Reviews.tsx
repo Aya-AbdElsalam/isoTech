@@ -150,9 +150,9 @@ export default function Reviews() {
                             sx={{ minWidth: 300 }} />
                     </Box>
                     {
-                        feedbackProduct && feedbackProduct.map((f: { date: string, img: string, user: string | number, comment: string | number }) => (
+                        feedbackProduct && feedbackProduct.map((f: { date: string, img: string, user: string | number, comment: string | number }, index) => (
                             <Card
-
+                                key={index}
                                 variant="outlined"
                                 sx={{ width: '100%', borderRadius: 0, '--Card-radius': "15px", my: "8px", boxSizing: "border-box" }}
                             >
